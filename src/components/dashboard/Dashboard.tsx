@@ -84,12 +84,12 @@ const Dashboard: React.FC = () => {
     <div className="bg-[#F8F9FF] overflow-hidden min-h-screen">
       <Header />
       <div className="flex flex-wrap">
-        {/* Filters on the left */}
+        {/* Left Section: Filters */}
         <div className="w-[300px] shrink-0">
           <FilterPanel />
         </div>
         
-        {/* Content area beside filters */}
+        {/* Center Section: Content */}
         <div className="flex-1">
           <ContentTabs>
             <div className="flex flex-wrap gap-6 mt-6">
@@ -102,7 +102,7 @@ const Dashboard: React.FC = () => {
                 </div>
               </div>
               
-              {/* Analytics widgets */}
+              {/* Right Section: Analytics Widgets */}
               <div className="shadow-[0px_1px_12px_0px_rgba(8,26,130,0.06)] min-w-[326px] w-[326px]">
                 <AnalyticsWidget
                   title={
