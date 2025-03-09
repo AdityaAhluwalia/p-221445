@@ -1,6 +1,6 @@
+
 import React from "react";
 import Header from "./Header";
-import Sidebar from "./Sidebar";
 import FilterPanel from "./FilterPanel";
 import ContentTabs from "./ContentTabs";
 import PostCard from "./PostCard";
@@ -81,79 +81,88 @@ const Dashboard: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#F8F9FF] overflow-hidden">
+    <div className="bg-[#F8F9FF] overflow-hidden min-h-screen">
       <Header />
-      <div className="flex items-stretch flex-wrap">
-        <Sidebar />
-        <FilterPanel />
-        <ContentTabs>
-          <div className="flex max-w-full w-[1026px] gap-6 flex-wrap mt-6">
-            <div className="min-w-60 flex-1 shrink basis-[0%] max-md:max-w-full">
-              <div className="flex w-full gap-5 flex-wrap max-md:max-w-full">
-                {posts.map((post, index) => (
-                  <PostCard key={index} {...post} />
-                ))}
+      <div className="flex flex-wrap">
+        {/* Filters on the left */}
+        <div className="w-[300px] shrink-0">
+          <FilterPanel />
+        </div>
+        
+        {/* Content area beside filters */}
+        <div className="flex-1">
+          <ContentTabs>
+            <div className="flex flex-wrap gap-6 mt-6">
+              {/* Posts grid */}
+              <div className="flex-1 min-w-[600px]">
+                <div className="flex w-full gap-5 flex-wrap">
+                  {posts.map((post, index) => (
+                    <PostCard key={index} {...post} />
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="shadow-[0px_1px_12px_0px_rgba(8,26,130,0.06)] min-w-60 w-[326px]">
-              <AnalyticsWidget
-                title={
-                  <>
-                    Top Hashtags being talked in{" "}
-                    <span className="font-semibold">
-                      All Top Trending Content
-                    </span>
-                  </>
-                }
-                icon="#️⃣"
-                actionIcon="https://cdn.builder.io/api/v1/image/assets/3750e689fb4e4776a9e6999028bcd2b6/10960da1a48ea313f98cdd3c02bc47b557a9ea1d19b60b43e51cc9e052dbebc0?placeholderIfAbsent=true"
-              >
-                <HashtagCloud />
-              </AnalyticsWidget>
-
-              <AnalyticsWidget
-                title={
-                  <>
-                    Top Keywords being talked in{" "}
-                    <span className="font-semibold">
-                      All Top Trending Content
-                    </span>
-                  </>
-                }
-                icon="🔑"
-                actionIcon="https://cdn.builder.io/api/v1/image/assets/3750e689fb4e4776a9e6999028bcd2b6/485cfccd869ec978c73ab74fc6e8aae8295066d431360c608554c0ab03d44b80?placeholderIfAbsent=true"
-                timePeriod="Apr 25 to May 24"
-                className="mt-6"
-              >
-                <KeywordCloud />
-              </AnalyticsWidget>
-
-              <div className="max-w-full w-[326px] mt-6">
+              
+              {/* Analytics widgets */}
+              <div className="shadow-[0px_1px_12px_0px_rgba(8,26,130,0.06)] min-w-[326px] w-[326px]">
                 <AnalyticsWidget
                   title={
                     <>
-                      SoV of{" "}
-                      <span className="font-semibold">
-                        Brands, Products, Issues, Ingredients, Benefits and
-                        Consideration Factors
-                      </span>{" "}
-                      being talked in{" "}
+                      Top Hashtags being talked in{" "}
                       <span className="font-semibold">
                         All Top Trending Content
                       </span>
                     </>
                   }
-                  icon="📊"
-                  infoIcon="info_outline"
+                  icon="#️⃣"
+                  actionIcon="https://cdn.builder.io/api/v1/image/assets/3750e689fb4e4776a9e6999028bcd2b6/10960da1a48ea313f98cdd3c02bc47b557a9ea1d19b60b43e51cc9e052dbebc0?placeholderIfAbsent=true"
                 >
-                  <div className="bg-white w-full px-4">
-                    <div className="flex min-h-1.5 w-full pt-2 rounded-2xl" />
-                  </div>
+                  <HashtagCloud />
                 </AnalyticsWidget>
+
+                <AnalyticsWidget
+                  title={
+                    <>
+                      Top Keywords being talked in{" "}
+                      <span className="font-semibold">
+                        All Top Trending Content
+                      </span>
+                    </>
+                  }
+                  icon="🔑"
+                  actionIcon="https://cdn.builder.io/api/v1/image/assets/3750e689fb4e4776a9e6999028bcd2b6/485cfccd869ec978c73ab74fc6e8aae8295066d431360c608554c0ab03d44b80?placeholderIfAbsent=true"
+                  timePeriod="Apr 25 to May 24"
+                  className="mt-6"
+                >
+                  <KeywordCloud />
+                </AnalyticsWidget>
+
+                <div className="max-w-full w-[326px] mt-6">
+                  <AnalyticsWidget
+                    title={
+                      <>
+                        SoV of{" "}
+                        <span className="font-semibold">
+                          Brands, Products, Issues, Ingredients, Benefits and
+                          Consideration Factors
+                        </span>{" "}
+                        being talked in{" "}
+                        <span className="font-semibold">
+                          All Top Trending Content
+                        </span>
+                      </>
+                    }
+                    icon="📊"
+                    infoIcon="info_outline"
+                  >
+                    <div className="bg-white w-full px-4">
+                      <div className="flex min-h-1.5 w-full pt-2 rounded-2xl" />
+                    </div>
+                  </AnalyticsWidget>
+                </div>
               </div>
             </div>
-          </div>
-        </ContentTabs>
+          </ContentTabs>
+        </div>
       </div>
     </div>
   );
