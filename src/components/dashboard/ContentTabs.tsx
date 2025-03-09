@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 interface ContentTabsProps {
@@ -32,7 +33,7 @@ const ContentTabs: React.FC<ContentTabsProps> = ({ children }) => {
       <div className="ml-6 mr-8 mt-6 max-md:max-w-full max-md:mr-2.5">
         <div className="flex min-h-10 w-full items-center gap-6 text-[#33334F] flex-wrap max-md:max-w-full">
           <div className="text-base font-semibold leading-6 self-stretch flex-1 shrink basis-8 my-auto max-md:max-w-full">
-            🔥 {{ XX }} Trending Posts
+            🔥 120 Trending Posts
             <span className="font-normal"> in the las</span>t 30 days
             <span className="font-normal"> i</span>n Skincare
           </div>
